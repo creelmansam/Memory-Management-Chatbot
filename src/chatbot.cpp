@@ -45,6 +45,59 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
+// # Define the required Rule of Five functions here
+ChatBot::ChatBot(ChatBot &source)
+{
+    std::cout << "ChatBot Copy Constructor" << std::endl;
+
+    _image = source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+}
+
+ChatBot& ChatBot::operator=(ChatBot &source)
+{
+    std::cout << "ChatBot Copy Assignment" << std::endl;
+
+    if (this == &source)
+        return *this;
+
+    _image = source._image; 
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+
+    return *this;
+}
+
+ChatBot::ChatBot(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Constructor" << std::endl;
+
+    _image = new wxBitmap();
+    *_image = *source._image; 
+
+    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+    _rootNode = source._rootNode;
+
+}
+ChatBot& ChatBot::operator=(ChatBot &&source)
+{
+    std::cout << "ChatBot Move Assignment" << std::endl;
+
+    if (this == &source)
+        return *this;
+
+    _image = new wxBitmap();
+    *_image = *source._image; 
+
+    _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+    _rootNode = source._rootNode;
+
+    return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 
