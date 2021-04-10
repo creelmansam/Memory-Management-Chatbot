@@ -1,7 +1,6 @@
 #ifndef CHATLOGIC_H_
 #define CHATLOGIC_H_
 
-#include <memory>
 #include <vector>
 #include <string>
 #include "chatgui.h"
@@ -18,8 +17,8 @@ private:
     ////
 
     // data handles (owned)
-    std::vector<std::shared_ptr<GraphNode>> _nodes;
-    std::vector<std::shared_ptr<GraphEdge>> _edges;
+    std::vector<GraphNode *> _nodes;
+    std::vector<GraphEdge *> _edges;
 
     ////
     //// EOF STUDENT CODE
