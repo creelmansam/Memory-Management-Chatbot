@@ -42,10 +42,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
-
-// # Define the required Rule of Five functions here
 ChatBot::ChatBot(ChatBot &source)
 {
     std::cout << "ChatBot Copy Constructor" << std::endl;
@@ -124,9 +120,6 @@ ChatBot& ChatBot::operator=(ChatBot &&source)
 
     return *this;
 }
-
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
